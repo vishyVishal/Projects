@@ -133,7 +133,6 @@ def build_model():
     
     return cv_ada
 
-
 def evaluate_model(model, X_test, Y_test, category_names):
     """
     Inputs:
@@ -158,6 +157,10 @@ def evaluate_model(model, X_test, Y_test, category_names):
         acc_lst.append((Y.columns[i], accuracy))
         print('F1 {}\n\n'.format(f1_score(Y_test.iloc[:, i].values, y_pred[:, i],average='weighted')))
         f1_lst.append((Y.columns[i],f1_score(Y_test.iloc[:, i].values, y_pred[:, i],average='weighted')))
+        precision = round(precision_score(Y_test.iloc[:, i].values, y_pred[:, i], average='micro'))
+        print('Precision {}\n\n'.format(precision))
+        recall = recall_score(Y_test.iloc[:, i].values, y_pred[:, i], average='micro')
+        print('Recall {}\n\n'.format(recall))
         
     # Print Some metrics     
     acc_scores = [ item[1] for item in acc_lst]
@@ -165,7 +168,6 @@ def evaluate_model(model, X_test, Y_test, category_names):
     
     f1_scores = [ item[1] for item in f1_lst]
     print("F1 Score Overall: " + str( sum(f1_scores)/len(f1_scores)) )
-    
 
 
 def save_model(model, model_filepath):
