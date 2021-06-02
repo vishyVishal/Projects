@@ -28,3 +28,9 @@ Using data from Figure Eight, a Histogram-based Gradient Boosting Classification
     `python run.py`
 
 3. Go to http://0.0.0.0:3001/
+
+### Web App
+
+![](imgs/img1.png)
+![](imgs/img2.png)
+![](imgs/img3.png)
